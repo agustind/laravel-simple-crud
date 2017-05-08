@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Agustind\Crud\Commands;
 
 use Illuminate\Console\Command;
 
-class Crud extends Command
+class CrudCommand extends Command
 {
     /**
      * The name and signature of the console command.

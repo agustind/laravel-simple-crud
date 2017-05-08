@@ -1,0 +1,20 @@
+{
+    "name": "agustind/laravel-simple-crud",
+    "description": "A Laravel 5.4 simple CRUD generator via artisan commands",
+    "license": "MIT",
+    "keywords": ["laravel", "crud"],
+    "authors": [
+        {
+            "name": "Agustin Dondo",
+            "email": "agustind@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Agustind\\Crud\\": "src/"
+        }
+    }
+}
