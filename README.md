@@ -1,3 +1,5 @@
+## Laravel Simple Crud
+
 This is a very light CRUD generator for Laravel 5.4 without all the bloat.
 The generated markup uses Twitter Bootstrap for easy integration.
 
@@ -5,6 +7,7 @@ It requires an already working database connection and it generates a CRUD for a
 The resulting route will be /model (example /posts) with a list of all records and functionality to create, edit and delete records.
 
 
+## Installation
 
 1. Install with
 
