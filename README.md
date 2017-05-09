@@ -29,3 +29,5 @@ composer require agustind/laravel-simple-crud dev-master
 
 ```
 php artisan crud:generate table_name
+
+If a layout exists at resources/views/layouts/app.blade.php it will be used from the generated views.
