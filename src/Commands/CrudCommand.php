@@ -153,8 +153,14 @@ class CrudCommand extends Command
         
         
         // generate the views
+        $layout_open = '';
+        $layout_close = '';
 
-
+        if(file_exists('resources/views/layouts/app.blade.php')){
+            $layout_open = '@extends(\'layouts.app\')
+        @section(\'content\')';
+            $layout_close = '@endsection';
+        }
 
         // index view
 
@@ -177,8 +183,7 @@ class CrudCommand extends Command
         }
         
 
-        $index_view = '@extends(\'layouts.app\')
-        @section(\'content\')
+        $index_view = $layout_open . '
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -204,7 +209,7 @@ class CrudCommand extends Command
                     </div>
                 </div>
             </div>
-        @endsection';
+        ' . $layout_close;
 
         // create views dir
         mkdir($views_directory);
@@ -235,9 +240,7 @@ class CrudCommand extends Command
             }
         } 
 
-        $create_view = '
-            @extends(\'layouts.app\')
-            @section(\'content\')
+        $create_view = $layout_open . '
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -257,8 +260,7 @@ class CrudCommand extends Command
                         </div>
                     </div>
                 </div>
-            @endsection
-        ';
+        ' . $layout_close;
 
         \File::put($views_directory . '/create.blade.php', $create_view);
         $this->info($views_directory . '/create.blade.php' . ' created');
@@ -286,9 +288,8 @@ class CrudCommand extends Command
             }
         } 
 
-        $edit_view = '
-            @extends(\'layouts.app\')
-            @section(\'content\')
+        $edit_view = $layout_open . '
+            
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -308,8 +309,7 @@ class CrudCommand extends Command
                         </div>
                     </div>
                 </div>
-            @endsection
-        ';
+        ' . $layout_close;
 
         \File::put($views_directory . '/edit.blade.php', $edit_view);
         $this->info($views_directory . '/edit.blade.php' . ' created');
