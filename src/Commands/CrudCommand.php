@@ -247,7 +247,7 @@ class CrudCommand extends Command
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <h2>Create ' . $singular . '</h2>
-                                    <form action="/posts" method="POST">
+                                    <form action="/' . $plural . '" method="POST">
                                         {{ csrf_field() }}
                                         ' . $create_form_fields . '
                                         <div class="form-group">
@@ -296,7 +296,7 @@ class CrudCommand extends Command
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <h2>Edit ' . $singular . '</h2>
-                                    <form action="/posts/{{ $' . $singular . '->id }}" method="POST">
+                                    <form action="/' . $plural . '/{{ $' . $singular . '->id }}" method="POST">
                                         {{ csrf_field() }}
                                         ' . $edit_form_fields . '
                                         <div class="form-group">
@@ -320,9 +320,9 @@ class CrudCommand extends Command
             Route::get(\'/' . $plural . '\', \'' . $controller_name . '@index\');
             Route::get(\'/' . $plural . '/create\', \'' . $controller_name . '@create\');
             Route::post(\'/' . $plural . '\', \'' . $controller_name . '@store\');
-            Route::get(\'/' . $plural . '/{post}/edit\', \'' . $controller_name . '@edit\');
-            Route::post(\'/' . $plural . '/{post}\', \'' . $controller_name . '@update\');
-            Route::get(\'/' . $plural . '/{post}/delete\', \'' . $controller_name . '@delete\');
+            Route::get(\'/' . $plural . '/{' . $singular . '}/edit\', \'' . $controller_name . '@edit\');
+            Route::post(\'/' . $plural . '/{' . $singular . '}\', \'' . $controller_name . '@update\');
+            Route::get(\'/' . $plural . '/{' . $singular . '}/delete\', \'' . $controller_name . '@delete\');
     
         ';
         \File::append('routes/web.php', $routes_content);
