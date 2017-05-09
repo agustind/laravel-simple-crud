@@ -197,7 +197,7 @@ class CrudCommand extends Command
                                         @foreach($' . $plural . ' as $' . $singular . ')
                                             <tr>
                                                 ' . $view_index_columns . '
-                                                <td><a href="/' . $plural . '/{{ $' . $singular . '->id }}/edit">edit</a> | <a href="javascript:if(confirm(\'Are you sure you want to delete this ' . $singular . '\')){ document.location=\'/' . $plural . '/{{ $' . $singular . '->id }}/delete\' }">delete</a></td>
+                                                <td><a href="/' . $plural . '/{{ $' . $singular . '->id }}/edit">edit</a> | <a href="javascript:if(confirm(\'Are you sure you want to delete this ' . $singular . '?\')){ document.location=\'/' . $plural . '/{{ $' . $singular . '->id }}/delete\' }">delete</a></td>
                                             </tr>
                                         @endforeach
                                     </table>
